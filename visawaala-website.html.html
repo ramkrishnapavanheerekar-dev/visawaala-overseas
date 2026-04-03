@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISAWAALA Overseas Consultants</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1F4B;
+    --navy-dark: #071430;
+    --navy-mid: #162d6b;
+    --gold: #C49A2A;
+    --gold-light: #E5BE6A;
+    --gold-pale: #FDF6E3;
+    --cream: #FAFAF7;
+    --white: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-mid: #4A4A6A;
+    --text-light: #7A7A9A;
+    --border: rgba(196,154,42,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11,31,75,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(196,154,42,0.3);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy-dark) !important;
+    padding: 8px 22px;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    letter-spacing: 1px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-dark) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #1a3a7a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #home::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(196,154,42,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(196,154,42,0.06) 0%, transparent 50%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(196,154,42,0.5);
+    color: var(--gold-light);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-title span { color: var(--gold); }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 14px 36px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 36px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 4rem;
+    margin-top: 5rem;
+    animation: fadeUp 0.8s 0.6s ease both;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat { text-align: center; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .hero-divider {
+    width: 1px;
+    background: rgba(196,154,42,0.3);
+    align-self: stretch;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 100px 5%; }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+    max-width: 620px;
+  }
+
+  .gold-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 1.2rem 0;
+    border-radius: 2px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 3rem;
+    color: var(--white);
+    position: relative;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -12px; left: -12px;
+    right: 12px; bottom: 12px;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    z-index: -1;
+  }
+
+  .about-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .about-highlight:last-child { border-bottom: none; }
+
+  .highlight-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(196,154,42,0.15);
+    border: 1px solid rgba(196,154,42,0.4);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .highlight-text h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .highlight-text p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+
+  .about-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--cream);
+  }
+
+  .services-header { max-width: 600px; margin-bottom: 4rem; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(11,31,75,0.12); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .service-flags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 1.2rem;
+  }
+
+  .flag-tag {
+    font-size: 0.72rem;
+    background: var(--gold-pale);
+    color: var(--gold);
+    border: 1px solid rgba(196,154,42,0.3);
+    padding: 3px 10px;
+    border-radius: 1px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-strip {
+    background: var(--navy);
+    padding: 80px 5%;
+  }
+
+  .testimonials-strip .section-title { color: var(--white); text-align: center; }
+  .testimonials-strip .section-tag { display: block; text-align: center; }
+  .testimonials-strip .gold-rule { margin: 1rem auto; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(196,154,42,0.2);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .stars { color: var(--gold); margin-bottom: 1rem; letter-spacing: 3px; }
+
+  .testimonial-text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.85;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(196,154,42,0.2);
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .author-visa {
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(196,154,42,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+
+  .contact-item h4 {
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .contact-item p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .hours-grid {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .hours-grid h4 {
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+
+  .hours-row:last-child { border-bottom: none; }
+  .hours-day { color: var(--text-mid); }
+  .hours-time { color: var(--navy); font-weight: 500; }
+  .hours-closed { color: #c0392b; }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-group label {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 2px;
+    padding: 12px 16px;
+    color: var(--text-dark);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 15px 36px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--navy-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2.5rem 5%;
+    border-top: 1px solid rgba(196,154,42,0.2);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 20px 12px 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: waPulse 2.5s infinite;
+  }
+  .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); animation: none; }
+  .whatsapp-float svg { width: 22px; height: 22px; flex-shrink: 0; }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
+  }
+  .map-wrap { border-radius: 4px; overflow: hidden; border: 2px solid var(--border); margin-top: 2rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #about, #contact { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">VISA<span>WAALA</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <span class="hero-badge">Trusted Visa & Immigration Consultants</span>
+  <h1 class="hero-title">Your Gateway to<br><span>Global Opportunities</span></h1>
+  <p class="hero-subtitle">Expert visa consultation services for UK, USA, Canada, Australia & more. We guide you every step of the way — from documentation to approval.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">Book Free Consultation</a>
+    <a href="#services" class="btn-outline">Our Services</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">5.0</span>
+      <span class="stat-label">Google Rating</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="stat">
+      <span class="stat-number">26+</span>
+      <span class="stat-label">Happy Clients</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="stat">
+      <span class="stat-number">100%</span>
+      <span class="stat-label">Honest Service</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div>
+    <span class="section-tag">About Us</span>
+    <h2 class="section-title">Why Choose VISAWAALA?</h2>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Led by Mr. Sonu Raj Dandotikar, VISAWAALA Overseas Consultants is built on honesty, transparency, and dedication. We've helped hundreds of individuals and families achieve their international dreams — whether it's a visitor visa, student visa, or permanent residency.</p>
+    <p class="section-desc" style="margin-top:1rem;">Unlike many agents, we speak the truth, prepare you thoroughly for every step, and respond with lightning speed. Your success is our mission.</p>
+    <div class="about-rating-badge" style="margin-top:2rem;">
+      ⭐ 5.0 / 5.0 &nbsp;·&nbsp; Google Reviews
+    </div>
+  </div>
+
+  <div class="about-visual">
+    <div class="about-card">
+      <div class="about-highlight">
+        <div class="highlight-icon">🎯</div>
+        <div class="highlight-text">
+          <h4>Honest & Transparent</h4>
+          <p>No false promises — only realistic, clear guidance</p>
+        </div>
+      </div>
+      <div class="about-highlight">
+        <div class="highlight-icon">⚡</div>
+        <div class="highlight-text">
+          <h4>Lightning-Fast Response</h4>
+          <p>We respond quickly and keep you updated at every stage</p>
+        </div>
+      </div>
+      <div class="about-highlight">
+        <div class="highlight-icon">📋</div>
+        <div class="highlight-text">
+          <h4>Expert Documentation</h4>
+          <p>Meticulous attention to documents to maximize approval chances</p>
+        </div>
+      </div>
+      <div class="about-highlight">
+        <div class="highlight-icon">🤝</div>
+        <div class="highlight-text">
+          <h4>End-to-End Support</h4>
+          <p>From application to interview prep — we're with you throughout</p>
+        </div>
+      </div>
+      <div class="about-highlight">
+        <div class="highlight-icon">👨‍👩‍👧‍👦</div>
+        <div class="highlight-text">
+          <h4>Family & Individual Cases</h4>
+          <p>Helping individuals, couples, families — all types of applicants</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">Our Services</h2>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Comprehensive visa and immigration solutions tailored to your specific needs and destination country.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🇬🇧</span>
+      <h3 class="service-title">UK Visitor Visa</h3>
+      <p class="service-desc">Family visits, tourism, and business trips to the United Kingdom. We handle complete documentation, financial proof, and interview preparation.</p>
+      <div class="service-flags">
+        <span class="flag-tag">Standard Visitor</span>
+        <span class="flag-tag">Family Visit</span>
+        <span class="flag-tag">Business</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🇺🇸</span>
+      <h3 class="service-title">USA Visa Assistance</h3>
+      <p class="service-desc">B1/B2 tourist and business visas, student visas, and more. Expert guidance through DS-160, interviews, and documentation.</p>
+      <div class="service-flags">
+        <span class="flag-tag">B1/B2 Tourist</span>
+        <span class="flag-tag">F1 Student</span>
+        <span class="flag-tag">Interview Prep</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🇨🇦</span>
+      <h3 class="service-title">Canada Immigration</h3>
+      <p class="service-desc">Visitor visas, study permits, and PR pathways to Canada. We simplify the complex Canadian immigration system for you.</p>
+      <div class="service-flags">
+        <span class="flag-tag">Visitor Visa</span>
+        <span class="flag-tag">Study Permit</span>
+        <span class="flag-tag">PR Pathway</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🇦🇺</span>
+      <h3 class="service-title">Australia Visa</h3>
+      <p class="service-desc">Tourist, student, and skilled migration visas for Australia. Full support from eligibility check to visa grant.</p>
+      <div class="service-flags">
+        <span class="flag-tag">Tourist</span>
+        <span class="flag-tag">Student</span>
+        <span class="flag-tag">Skilled Migration</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">📝</span>
+      <h3 class="service-title">Document Review</h3>
+      <p class="service-desc">Professional review and preparation of all visa-related documents. We ensure everything is complete, accurate, and submission-ready.</p>
+      <div class="service-flags">
+        <span class="flag-tag">MTC Review</span>
+        <span class="flag-tag">Financial Docs</span>
+        <span class="flag-tag">Cover Letters</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <span class="service-icon">🎓</span>
+      <h3 class="service-title">Interview Coaching</h3>
+      <p class="service-desc">Thorough preparation for visa interviews. We coach you on likely questions, presentation, and how to handle challenging scenarios confidently.</p>
+      <div class="service-flags">
+        <span class="flag-tag">Mock Interviews</span>
+        <span class="flag-tag">Q&A Training</span>
+        <span class="flag-tag">Confidence Building</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-strip">
+  <span class="section-tag">Client Stories</span>
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="gold-rule"></div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Their team was incredibly professional, knowledgeable, and supportive throughout the entire process. From guiding me with documentation to the final approval — exceptional service."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RK</div>
+        <div>
+          <div class="author-name">Verified Client</div>
+          <div class="author-visa">Visa Approved ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Thank you for helping my parents get their visas despite all the challenges. Mr. Sonu Raj Dandotikar made my dream come true. Highly recommend VISAWAALA to everyone!"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SK</div>
+        <div>
+          <div class="author-name">Verified Client</div>
+          <div class="author-visa">Parents Visa ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"He is honest with the service he provides. After being misled by several others, we tried the UK process under his guidance — and it was successful! God fearing and hardworking."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AP</div>
+        <div>
+          <div class="author-name">Verified Client</div>
+          <div class="author-visa">UK Family Visa ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div>
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title">Start Your Journey Today</h2>
+    <div class="gold-rule"></div>
+    <p class="section-desc" style="margin-bottom:2.5rem;">Reach out to us for a free initial consultation. We'll assess your case and guide you towards the best path forward.</p>
+
+    <div class="contact-info-block">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Our Office</h4>
+          <p>Vijetha Inti Plaza, 301, Moosarambagh Rd<br>Saleem Nagar Colony, Malakpet Extension<br>Old Malakpet, Hyderabad, Telangana 500036</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p><a href="tel:+919676204253" style="color:var(--navy);font-weight:500;text-decoration:none;">096762 04253</a><br><a href="tel:+919154991091" style="color:var(--navy);font-weight:500;text-decoration:none;">9154991091</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="/cdn-cgi/l/email-protection#60330f0e154e160913011701010c0120070d01090c4e030f0d" style="color:var(--navy);font-weight:500;text-decoration:none;"><span class="__cf_email__" data-cfemail="2a7945445f045c43594b5d4b4b464b6a4d474b434604494547">[email&#160;protected]</span></a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">⏰</div>
+        <div>
+          <h4>Working Hours</h4>
+          <div class="hours-grid" style="margin-top:8px;">
+            <div class="hours-row"><span class="hours-day">Monday – Saturday</span><span class="hours-time">10:00 AM – 7:00 PM</span></div>
+            <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-closed">Closed</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.4284!2d78.5147784!3d17.3716124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99ce99ebcf45%3A0x928013545d6d5034!2sVISAWAALA%20Overseas%20Consultants!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          width="100%" height="220" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:1.5rem;">Send Us a Message</h3>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Visa Type Interested In</label>
+        <select>
+          <option value="">Select a visa type...</option>
+          <option>UK Visitor / Family Visa</option>
+          <option>USA B1/B2 Visa</option>
+          <option>Canada Visitor / Study Permit</option>
+          <option>Australia Visa</option>
+          <option>Student Visa</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea placeholder="Tell us about your situation and how we can help..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+      <div id="success-msg" style="display:none;color:#27ae60;font-weight:500;font-size:0.9rem;padding:12px;background:#eafaf1;border:1px solid #a9dfbf;border-radius:2px;">
+        ✓ Thank you! We'll get back to you within 24 hours.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/919676204253?text=Hello%20VISAWAALA!%20I%20need%20help%20with%20my%20visa%20application." class="whatsapp-float" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  Chat on WhatsApp
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:8px;">VISAWAALA Overseas Consultants</p>
+  <p>Vijetha Inti Plaza, 301, Moosarambagh Rd, Old Malakpet, Hyderabad 500036 &nbsp;|&nbsp; <a href="tel:+919676204253">096762 04253</a> &nbsp;/&nbsp; <a href="tel:+919154991091">9154991091</a> &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection#0d5e626378237b647e6c7a6c6c616c4d6a606c6461236e6260"><span class="__cf_email__" data-cfemail="beedd1d0cb90c8d7cddfc9dfdfd2dffed9d3dfd7d290ddd1d3">[email&#160;protected]</span></a></p>
+  <p style="margin-top:12px;">© 2025 VISAWAALA Overseas Consultants. All rights reserved.</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('success-msg').style.display = 'block';
+  e.target.reset();
+  setTimeout(() => { document.getElementById('success-msg').style.display = 'none'; }, 5000);
+}
+
+// Scroll animation for section entries
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target
